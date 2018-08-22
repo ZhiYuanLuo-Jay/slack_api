@@ -14,7 +14,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 // Root Route ----------------------------------------------------------
-app.get('/greeting', function(req, res) {  
+app.post('/greeting', function(req, res) {  
     // res.render("index");
     res.send('Hi ZhiYuan Luo!');
 })
