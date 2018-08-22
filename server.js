@@ -15,8 +15,8 @@ app.set('view engine', 'ejs');
 
 // Root Route ----------------------------------------------------------
 app.get('/', function(req, res) {  
-    res.render("index");
-    // res.send('Hello!');
+    // res.render("index");
+    res.send('Hello!');
 })
 
 app.post('/input', function(req, res) {
