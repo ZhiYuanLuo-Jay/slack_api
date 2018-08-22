@@ -14,12 +14,13 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 // Root Route ----------------------------------------------------------
-app.get('/', function(req, res) {  
+app.get('/greeting', function(req, res) {  
     // res.render("index");
     res.send('Hi ZhiYuan Luo!');
 })
 
-app.post('/input', function(req, res) {
+// app.post('/input', function(req, res) {
+app.get('/input', function(req, res) {
     res.send("ZhiYuan Luo, NiHao~!")
     // console.log("POST DATA \n", req.body)
     // req.session.task = req.body['TASK']
