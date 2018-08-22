@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Slack Api</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+ 
+<script>        
+    $(document).ready(function() {
+       
+        // $.get(url, function(res){
+        //     console.log("Grove Api response: ", res['data']);
+        //     for(var i=0; i<res['data'].length; i++){
+        //         $('.api').append('<h3>Task ' + i + ' - ' + res['data'][i]['attributes']['name'] + 
+        //         " => every " +  cronConvert(res['data'][i]['attributes']['cron']) +".</h3> \n");           
+        //         let cronData = res['data'][i]['attributes']['cron'];
+
+        //         // Handling for "0 14 * *", which is missing one *.
+        //         if (cronData.split(" ").length == 4){
+        //             let strFix = cronData.split(" ");
+        //             strFix.push("*");
+        //             cronData = strFix.join(" ")
+        //         }
+        //         let taskData = res['data'][i]['attributes']['name'];
+        //         arr.push(cronData);
+        //         task.push(taskData)
+        //     }
+        //     $("#api").val(arr);
+        //     $("#task").val(task);
+        // }, 'json');  
+        
+    });
+</script>
+
+</head>
+
+<body>
+    <div class="wrapper">            
+        <h1 style="color: lightcoral;">Slack Api Services</h1>
+        <div class="input-group">
+            <form action='/input' method='post'>
+                <input type='hidden' id="api" name='API'>
+                <input type='hidden' id="task" name='TASK'>
+                <input type="text" id="url" name="url" value="https://scheduler-challenge.herokuapp.com/schedule">        
+                <input type="submit" id="input" value="Get API Data">
+            </form>
+        </div>
+        <br>
+        <div class="api"></div>
+        <br>
+        <hr>
+        <h2>Events, happening in the next 24 hours: </h2>
+
+        <br>
+        <hr>
+        <h2>Event, previous 3 hours from the current time: </h2>
+
+    </div>
+</body>
+
+</html>
