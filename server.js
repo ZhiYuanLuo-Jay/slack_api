@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 // Root Route ----------------------------------------------------------
 app.post('/greeting', function(req, res) {  
     // res.render("index");
-    res.send('Hi ZhiYuan Luo!');
+    res.send('Hi Welcome to Slack Command API Services!');
 })
 
 // app.post('/input', function(req, res) {
