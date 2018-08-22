@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 // Root Route ----------------------------------------------------------
 app.get('/', function(req, res) {  
     // res.render("index");
-    res.send('Hello!');
+    res.send('Hi ZhiYuan Luo!');
 })
 
 app.post('/input', function(req, res) {
@@ -26,7 +26,8 @@ app.post('/input', function(req, res) {
     // res.redirect('/output')   
 });
 
-app.listen(8000, function() {
-    console.log("listening on port 8000");
+const port = process.env.PORT || 8000
+app.listen(port, function() {
+    console.log("listening on port: " + 8000);
 })
 
