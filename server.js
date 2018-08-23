@@ -31,7 +31,7 @@ app.post('/pokemon', function(req, res){
     // res.render("index");
 
     console.log("req===========:", req)
-    id = req.Content-type.text
+    id = req.body['Content-type']['text']
 
     // Promise to get API data
     link = "https://pokeapi.co/api/v2/pokemon/"
@@ -43,7 +43,7 @@ app.post('/pokemon', function(req, res){
         },
         json: true // Automatically stringifies the body to JSON
     };
-    
+
     rp(options)
     .then(function (options) {
         // console.log("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.n;ame)
