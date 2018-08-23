@@ -30,8 +30,8 @@ app.post('/cnhello', function(req, res) {
 app.post('/pokemon', function(req, res){
     // res.render("index");
 
-    console.log("req===========:", req)
-    id = req.body['Content-type']['text']
+    console.log("req===========:", req.body)
+    id = req.body.Content-type.text
 
     // Promise to get API data
     link = "https://pokeapi.co/api/v2/pokemon/"
