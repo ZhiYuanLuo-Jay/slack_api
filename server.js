@@ -17,17 +17,18 @@ app.use(express.static(__dirname + "/static"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// 1
+// 1st, slash command - /greeting
 app.post('/greeting', function(req, res) {  
     res.send('Hi Welcome to Slack Command API Services!');
 })
 
-// 2
+// 2nd, slash command - /chhello
 app.post('/cnhello', function(req, res) {
     res.send("罗智元， 您好， 你真棒!")  
 })
 
-// 3
+// 3th, slash command - /pokemon
+// how to use ------------------------------>     /pokemon 1
 app.post('/pokemon', function(req, res){
     console.log("req===========:", req.body)
     id = req.body.text
@@ -53,7 +54,8 @@ app.post('/pokemon', function(req, res){
     });
 })
 
-// 4
+// 4th, slash command - /houses
+// how to use ------------------------------>     /houses 8
 app.post('/houses', function(req, res){
     console.log("req===========:", req.body)
     id = req.body.text
