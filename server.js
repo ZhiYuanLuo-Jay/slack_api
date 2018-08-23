@@ -44,8 +44,6 @@ app.post('/pokemon', function(req, res){
         json: true // Automatically stringifies the body to JSON
     };
 
-    console.log("uri-------->", options.uri)
-
     rp(options)
     .then(function (options) {
         console.log("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.name)
@@ -55,18 +53,7 @@ app.post('/pokemon', function(req, res){
     .catch(function (err) {
         console.log("Error~~~")
     });
-
-    
-    // request.get(link + req.params.id, function (error, response, body) {
-    //     console.log('body:', "Pokemon's name: " + JSON.parse(body).name, ', Ability: ' + JSON.parse(body).abilities[0].ability.name ); // Print the JSON object
-    //     console.log('error:', error); // Print the error if one occurred
-    //     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    // })
-    // res.send("Pokemon's name: " + JSON.parse(body).name, ', Ability: ' + JSON.parse(body).abilities[0].ability.name)
-    
 })
-
-
 
 const port = process.env.PORT || 8000
 app.listen(port, function() {
