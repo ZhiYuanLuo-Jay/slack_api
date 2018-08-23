@@ -17,19 +17,18 @@ app.use(express.static(__dirname + "/static"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// Root Route ----------------------------------------------------------
+// 1
 app.post('/greeting', function(req, res) {  
     res.send('Hi Welcome to Slack Command API Services!');
 })
 
-// app.post('/input', function(req, res) {
+// 2
 app.post('/cnhello', function(req, res) {
     res.send("罗智元， 您好， 你真棒!")  
 })
 
+// 3
 app.post('/pokemon', function(req, res){
-    // res.render("index");
-
     console.log("req===========:", req.body)
     id = req.body.text
 
@@ -47,13 +46,39 @@ app.post('/pokemon', function(req, res){
     rp(options)
     .then(function (options) {
         console.log("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.name)
-        // res.send("Pokemon's name: *******--------ZYL ")
         res.send("Pokemon's name: " + options.name)
     })
     .catch(function (err) {
         console.log("Error~~~")
     });
 })
+
+// 4
+app.post('/houses', function(req, res){
+    console.log("req===========:", req.body)
+    id = req.body.text
+
+    // Promise to get API data
+    link = "https://www.anapioficeandfire.com/api/houses"
+    var options = {
+        method: 'get',
+        uri: link + id,
+        body: {
+            some: 'data~~~'
+        },
+        json: true // Automatically stringifies the body to JSON
+    };
+
+    rp(options)
+    .then(function (options) {
+        console.log("At House: " + options.name)
+        res.send("At House: " + options.name)
+    })
+    .catch(function (err) {
+        console.log("Error~~~")
+    });
+})
+
 
 const port = process.env.PORT || 8000
 app.listen(port, function() {
