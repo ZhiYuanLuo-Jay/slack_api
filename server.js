@@ -47,7 +47,9 @@ app.post('/pokemon', function(req, res){
     rp(options)
     .then(function (options) {
         // console.log("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.n;ame)
-        res.send("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.name)
+        console.log(options.uri)
+        res.send("Pokemon's name: *******--------ZYL ")
+        // res.send("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.name)
     })
     .catch(function (err) {
         console.log("Error~~~")
