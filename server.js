@@ -24,7 +24,7 @@ app.post('/greeting', function(req, res) {  
 
 // app.post('/input', function(req, res) {
 app.post('/cnhello', function(req, res) {
-    res.send("ZhiYuan Luo, NiHao~!")  
+    res.send("罗智元， 您好， 你真棒!")  
 })
 
 app.post('/pokemon', function(req, res){
