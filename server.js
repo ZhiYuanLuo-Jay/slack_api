@@ -44,10 +44,11 @@ app.post('/pokemon', function(req, res){
         json: true // Automatically stringifies the body to JSON
     };
 
+    console.log("uri-------->", options.uri)
+
     rp(options)
     .then(function (options) {
-        // console.log("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.n;ame)
-        console.log(options.uri)
+        console.log("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.n;ame)
         res.send("Pokemon's name: *******--------ZYL ")
         // res.send("Pokemon's name: " + options.name, ", Ability: " + options.abilities[0].ability.name)
     })
