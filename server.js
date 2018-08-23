@@ -59,7 +59,7 @@ app.post('/houses', function(req, res){
     id = req.body.text
 
     // Promise to get API data
-    link = "https://www.anapioficeandfire.com/api/houses"
+    link = "https://www.anapioficeandfire.com/api/houses/"
     var options = {
         method: 'get',
         uri: link + id,
