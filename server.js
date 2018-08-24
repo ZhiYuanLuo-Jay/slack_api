@@ -115,6 +115,7 @@ app.post('/dict', function(req, res){
     })
     .catch(function (err) {
         console.log("Error~~~")
+        res.send("The word you entered " + word_id + " does not exist.")
     });
 })
 
