@@ -82,6 +82,44 @@ app.post('/houses', function(req, res){
 })
 
 
+// 5th, slash command - /dict 
+// how to use ------------------------------>     /dict apple
+app.post('/dict', function(req, res){
+    console.log("req===========:", req.body)
+    word_id = req.body.text
+    language = 'en'
+    word_id = 'Apple'
+    
+    app_id = '940617c7'
+    app_key = '85569da071da515e0c00c774ecea1c4a'
+
+    // Promise to get API data
+    link = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' 
+    var options = {
+        method: 'get',
+        uri: link + language + '/' + word_id.toLowerCase(),
+        body: {
+            some: 'data~~~'
+        },
+        headers : {
+            'app_id': app_id, 
+            'app_key': app_key
+        },
+        json: true // Automatically stringifies the body to JSON
+    };
+
+    rp(options)
+    .then(function (options) {
+        str = JSON.stringify(options['results'][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0])
+        console.log("Dict definition =====> " + str)
+        res.send(word_id.toUpperCase() + " => " + str)
+    })
+    .catch(function (err) {
+        console.log("Error~~~")
+    });
+})
+
+
 const port = process.env.PORT || 8000
 app.listen(port, function() {
     console.log("listening on port: " + 8000);
