@@ -88,7 +88,6 @@ app.post('/dict', function(req, res){
     console.log("req===========:", req.body)
     word_id = req.body.text
     language = 'en'
-    word_id = 'Apple'
     
     app_id = '940617c7'
     app_key = '85569da071da515e0c00c774ecea1c4a'
