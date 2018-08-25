@@ -129,11 +129,12 @@ app.post('/bitc', function(req, res){
     let value = 1000
 
     // Promise to get API data
-    let link = "https://blockchain.info/tobtc?currency="
+    let link = "https://blockchain.info/tobtc?currency=" + currency + "&value=" + value.toString();
+    console.log(link)
 
     var options = {
         method: 'get',
-        uri: link + currency + "&value=" + value.toString(),
+        uri: link,
         body: {
             some: 'data~~~'
         },
