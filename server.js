@@ -31,10 +31,10 @@ app.post('/cnhello', function(req, res) {
 // how to use ------------------------------>     /pokemon 1
 app.post('/pokemon', function(req, res){
     console.log("req===========:", req.body)
-    id = req.body.text
+    let id = req.body.text
 
     // Promise to get API data
-    link = "https://pokeapi.co/api/v2/pokemon/"
+    let link = "https://pokeapi.co/api/v2/pokemon/"
     var options = {
         method: 'get',
         uri: link + id,
@@ -58,10 +58,10 @@ app.post('/pokemon', function(req, res){
 // how to use ------------------------------>     /houses 8
 app.post('/houses', function(req, res){
     console.log("req===========:", req.body)
-    id = req.body.text
+    let id = req.body.text
 
     // Promise to get API data
-    link = "https://www.anapioficeandfire.com/api/houses/"
+    let link = "https://www.anapioficeandfire.com/api/houses/"
     var options = {
         method: 'get',
         uri: link + id,
@@ -86,14 +86,14 @@ app.post('/houses', function(req, res){
 // how to use ------------------------------>     /dict apple
 app.post('/dict', function(req, res){
     console.log("req===========:", req.body)
-    word_id = req.body.text
-    language = 'en'
+    let word_id = req.body.text
+    let language = 'en'
     
-    app_id = '940617c7'
-    app_key = '85569da071da515e0c00c774ecea1c4a'
+    let app_id = '940617c7'
+    let app_key = '85569da071da515e0c00c774ecea1c4a'
 
     // Promise to get API data
-    link = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' 
+    let link = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' 
     var options = {
         method: 'get',
         uri: link + language + '/' + word_id.toLowerCase(),
@@ -120,6 +120,37 @@ app.post('/dict', function(req, res){
 })
 
 
+// 6th, slash command - /bitc
+// how to use ------------------------------>     /bitc USD
+app.post('/bitc', function(req, res){
+    console.log("req===========:", req.body)
+    let currency = req.body.text
+    // let currency = 'USD'
+    let value = 1000
+
+    // Promise to get API data
+    let link = "https://blockchain.info/tobtc?currency="
+
+    var options = {
+        method: 'get',
+        uri: link + currency + "&value=" + string(value),
+        body: {
+            some: 'data~~~'
+        },
+        json: true // Automatically stringifies the body to JSON
+    };
+
+    rp(options)
+    .then(function (options) {
+        console.log("Bitcoin rate ===> " + options)
+        // Math.round(num * 100) / 100, it rounds to at most two decimal places
+        // `string text ${expression} string text`
+        res.send(`1 Bitcoin equals ${Math.round((value / options)*100 / 100)} ${toUpperCase(currency)}`)
+    })
+    .catch(function (err) {
+        console.log("Error~~~")
+    });
+})
 const port = process.env.PORT || 8000
 app.listen(port, function() {
     console.log("listening on port: " + 8000);
