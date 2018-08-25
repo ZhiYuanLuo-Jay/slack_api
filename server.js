@@ -124,7 +124,7 @@ app.post('/dict', function(req, res){
 // how to use ------------------------------>     /bitc USD
 app.post('/bitc', function(req, res){
     console.log("req===========:", req.body)
-    let currency = toUpperCase(req.body.text)
+    let currency = req.body.text.toUpperCase()
     // let currency = 'USD'
     let value = 1000
 
@@ -145,7 +145,7 @@ app.post('/bitc', function(req, res){
         console.log("Bitcoin rate ===> " + options)
         // Math.round(num * 100) / 100, it rounds to at most two decimal places
         // `string text ${expression} string text`
-        res.send(`1 Bitcoin equals ${Math.round((value / options)*100 / 100)} ${toUpperCase(currency)}`)
+        res.send(`1 Bitcoin equals ${Math.round((value / options)*100 / 100)} ${currency}`)
     })
     .catch(function (err) {
         console.log("Error~~~")
