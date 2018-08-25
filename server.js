@@ -133,7 +133,7 @@ app.post('/bitc', function(req, res){
     console.log("link ------------->", link)
 
     var options = {
-        method: 'get',
+        method: 'post',
         uri: link,
         body: {
             some: 'data~~~'
