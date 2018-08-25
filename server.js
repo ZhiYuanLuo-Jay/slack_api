@@ -124,7 +124,7 @@ app.post('/dict', function(req, res){
 // how to use ------------------------------>     /bitc USD
 app.post('/bitc', function(req, res){
     console.log("req===========:", req.body)
-    let currency = req.body.text
+    let currency = toUpperCase(req.body.text)
     // let currency = 'USD'
     let value = 1000
 
