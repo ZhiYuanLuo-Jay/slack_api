@@ -130,7 +130,7 @@ app.post('/bitc', function(req, res){
 
     // Promise to get API data
     let link = "https://blockchain.info/tobtc?currency=" + currency + "&value=" + value.toString();
-    console.log("link ------------->", link)
+    // console.log("link --------->", link)
 
     var options = {
         method: 'post',
@@ -146,7 +146,7 @@ app.post('/bitc', function(req, res){
         console.log("Bitcoin rate ===> " + options)
         // Math.round(num * 100) / 100, it rounds to at most two decimal places
         // `string text ${expression} string text`
-        // res.send(`1 Bitcoin equals ${Math.round((value / options)*100 / 100)} ${currency}`)
+        res.send(`1 Bitcoin equals ${Math.round((value / options)*100 / 100)} ${currency}`)
     })
     .catch(function (err) {
         console.log("Error~~~")
